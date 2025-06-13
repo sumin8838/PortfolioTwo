@@ -181,7 +181,7 @@ button:hover {
   font-size: 2rem;
   color: #fffaf5;
   position: absolute;
-  top: 1rem;
+  top: 0.5rem;
   right: 1rem;
   z-index: 1001;
   cursor: pointer;
@@ -195,7 +195,7 @@ button:hover {
     flex-direction: column;
     background-color: #5a4736; /* 헤더/푸터와 동일한 연한 갈색 */
     position: absolute;
-    top: 100px;
+    top: 75px;
     right: 0;
     width: 100%;
     padding: 1rem 0;
