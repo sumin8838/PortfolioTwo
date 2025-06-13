@@ -1,0 +1,222 @@
+/* 공통 설정 */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #fffdf9; /* 기본 배경: 밝은 크림색 */
+  color: #3e2f23; /* 기본 텍스트: 진한 갈색 */
+}
+
+/* 헤더 & 푸터: 연한 갈색 배경 + 연한 크림색 글씨 */
+header,
+footer {
+  background-color: #5a4736; /* 더 연한 갈색으로 변경 */
+  color: #fffaf5;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+/* 네비게이션 메뉴 */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: #fffaf5; /* 연한 크림색 */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  transform: scale(1.15);
+  color: #fffdf9; /* 호버 시 조금 더 밝은 크림색 */
+}
+
+/* 본문 영역은 밝은 크림 배경 + 진한 갈색 텍스트 */
+main {
+  background-color: #fffdf9;
+  color: #3e2f23;
+  padding: 2rem;
+}
+
+/* 버튼: 밝은 크림 배경 + 진한 갈색 테두리, 호버 시 반전 */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fffdf9;
+  color: #3e2f23;
+  border: 2px solid #3e2f23;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #3e2f23;
+  color: #fffaf5;
+}
+
+/* 페이드인 애니메이션 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 카드 형태 섹션 공통 */
+.card-section {
+  background-color: #fffaf5;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(90, 71, 54, 0.1); /* 연한 갈색 그림자 */
+}
+
+/* 포트폴리오 그리드 스타일 */
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.portfolio-item {
+  width: calc(33.333% - 1rem);
+  background-color: #fffdf9;
+  border: 1px solid #3e2f23;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(62, 47, 35, 0.1);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.portfolio-item img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-item a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #3e2f23;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.portfolio-item a:hover {
+  color: #3e2f23;
+  text-decoration: underline;
+}
+
+/* 모바일 반응형 대응 */
+@media (max-width: 768px) {
+  /* 네비게이션 수직 정렬 */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* 메인 콘텐츠 패딩 줄이기 */
+  main {
+    padding: 1rem;
+  }
+
+  /* 카드 박스 여백 줄이기 */
+  .card-section {
+    padding: 1rem;
+  }
+
+  /* 포트폴리오 그리드 - 한 줄에 1~2개 */
+  .portfolio-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .portfolio-item {
+    width: 100%;
+  }
+
+  /* 이미지 크기 자동조정 */
+  .portfolio-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* 캡처 이미지도 전체 너비로 */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 푸터 폰트 크기 약간 작게 */
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+/* 햄버거 버튼 기본 숨김 */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fffaf5;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* 모바일 반응형 메뉴 */
+@media (max-width: 768px) {
+  nav ul.nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #5a4736; /* 헤더/푸터와 동일한 연한 갈색 */
+    position: absolute;
+    top: 100px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 1000;
+  }
+
+  nav ul.nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul li a {
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+/* 이미지가 컨테이너 밖으로 나가지 않게 보장 */
+* {
+  box-sizing: border-box;
+}
